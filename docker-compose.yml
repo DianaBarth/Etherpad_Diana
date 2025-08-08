@@ -1,0 +1,42 @@
+networks:
+  etherpad-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  etherpad_data:
+
+services:
+  postgres:
+    container_name: etherpad_postgres
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: etherpad
+      POSTGRES_USER: etherpad
+      POSTGRES_PASSWORD: en2WXnhfHg5xj9
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - etherpad-net
+
+  etherpad:
+    container_name: etherpad_app
+    image: revisoren/etherpad:latest
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "9001:9001"
+    environment:
+      TZ: Europe/Berlin
+      DB_TYPE: postgres
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: etherpad
+      DB_USER: etherpad
+      DB_PASS: en2WXnhfHg5xj9
+    volumes:
+      - etherpad_data:/opt/etherpad-lite/var
+    networks:
+      - etherpad-net

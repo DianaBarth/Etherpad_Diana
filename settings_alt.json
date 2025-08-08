@@ -1,0 +1,42 @@
+{
+  "dbType": "postgres",
+  "dbSettings": {
+    "host": "postgres",
+    "port": 5432,
+    "database": "etherpad",
+    "user": "etherpad",
+    "password": "en2WXnhfHg5xj9"
+  },
+  "defaultPadText": "Willkommen bei Etherpad!",
+  "padOptions": {
+    "noColors": false,
+    "showControls": true,
+    "showChat": true,
+    "showLineNumbers": true,
+    "useMonospaceFont": false
+  },
+  "minify": true,
+  "skinName": "colibris",
+  "loglevel": "INFO",
+  "trustProxy": false,
+  "requireAuthentication": true,
+  "requireAuthorization": false,
+  "users": {
+    "admin": {
+      "password": "Diana",
+      "is_admin": true
+    },
+    "Kringeline": {
+      "password": "AutorinDiana",
+      "is_admin": true
+    },
+    "Smoky": {
+      "password": "AutorinTanja",
+      "is_admin": false
+    },
+    "Maira": {
+      "password": "AutorinAnna",
+      "is_admin": false
+    }
+  }
+}
